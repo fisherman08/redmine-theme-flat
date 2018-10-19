@@ -2,7 +2,7 @@
 @import url('../../../stylesheets/application.css');
 
 // Open Sans
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800');
 
 $gray-dark: #202020;
 $gray-text: #484848;
@@ -103,6 +103,14 @@ code {
   label {
     line-height: 2.1;
   }
+
+  #project-jump {
+    &:not(.expanded){
+      div.drdn-content {
+        display: none;
+      }
+    }
+  }
 }
 
 // Menu
@@ -111,12 +119,25 @@ code {
   left: 0;
   margin-right: 0;
   @include pie-clearfix;
-  li {
-    a {
+
+  a.new-object {
+    background-color: $gray-dark;
+  }
+
+
+  ul {
+
+    li:not(.menu-children-item) {
       font-weight: 300;
       border-top: 3px solid $gray-dark;
       padding: 4px 15px 7px;
       @include transition(border-color .5s);
+
+
+      &.new-object-parent {
+        width: 2em;
+      }
+
       &.selected,
       &:hover {
         border-top: 3px solid $hotpink;
@@ -126,9 +147,29 @@ code {
         font-weight: 400;
         background: #fff;
       }
+
+      .menu-children {
+        position: absolute;
+        bottom: -1.5em;
+        li {
+          background-color: $gray-text;
+          color: white;
+        }
+        &:not(.visible) {
+          li {
+            display: none;
+          }
+        }
+      }
+
+      .menu-children-item {
+        position: relative;
+      }
     }
   }
 }
+
+
 
 // Content
 #main {
