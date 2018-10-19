@@ -593,7 +593,7 @@ code {
   height: auto;
   margin-left: 8px;
 }
-#quick-search input {
+#quick-search input:not(#projects-quick-search) {
   background: #2d2d2d;
   border: none;
   color: #FFF;
@@ -620,9 +620,6 @@ code {
   display: table;
   clear: both;
 }
-#main-menu a.new-object {
-  background-color: #202020;
-}
 #main-menu ul li:not(.menu-children-item) {
   font-weight: 300;
   border-top: 3px solid #202020;
@@ -632,8 +629,12 @@ code {
   -webkit-transition: border-color 0.5s;
   transition: border-color 0.5s;
 }
+#main-menu ul li:not(.menu-children-item) a#new-object:not(:hover) {
+  background-color: #202020;
+}
 #main-menu ul li:not(.menu-children-item).new-object-parent {
-  width: 2em;
+  #width: 2em;
+  background-color: #202020;
 }
 #main-menu ul li:not(.menu-children-item).selected, #main-menu ul li:not(.menu-children-item):hover {
   border-top: 3px solid #d92e47;
@@ -645,11 +646,15 @@ code {
 }
 #main-menu ul li:not(.menu-children-item) .menu-children {
   position: absolute;
-  bottom: -1.5em;
+  border: 1px solid #e1e1e1;
+  #bottom: -1.5em;
 }
-#main-menu ul li:not(.menu-children-item) .menu-children li {
-  background-color: #484848;
-  color: white;
+#main-menu ul li:not(.menu-children-item) .menu-children li a {
+  color: #d92e47;
+}
+#main-menu ul li:not(.menu-children-item) .menu-children li a:hover {
+  color: #d92e47;
+  background-color: #8a8a8a;
 }
 #main-menu ul li:not(.menu-children-item) .menu-children:not(.visible) li {
   display: none;

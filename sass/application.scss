@@ -91,7 +91,7 @@ code {
     height: auto;
     margin-left: 8px;
   }
-  input {
+  input:not(#projects-quick-search) {
     background: lighten($gray-dark, 5%);
     border: none;
     color: #FFF;
@@ -120,10 +120,6 @@ code {
   margin-right: 0;
   @include pie-clearfix;
 
-  a.new-object {
-    background-color: $gray-dark;
-  }
-
 
   ul {
 
@@ -134,8 +130,17 @@ code {
       @include transition(border-color .5s);
 
 
+      a#new-object {
+        &:not(:hover){
+          background-color: $gray-dark;
+        }
+      }
+
+
       &.new-object-parent {
-        width: 2em;
+        #width: 2em;
+        background-color: $gray-dark;
+
       }
 
       &.selected,
@@ -150,11 +155,23 @@ code {
 
       .menu-children {
         position: absolute;
-        bottom: -1.5em;
+
+        border: 1px solid #e1e1e1;
+
+
         li {
-          background-color: $gray-text;
-          color: white;
+          a {
+            color: $hotpink;
+
+            &:hover {
+              color: $hotpink;
+              background-color: #8a8a8a;
+            }
+          }
         }
+
+        #bottom: -1.5em;
+
         &:not(.visible) {
           li {
             display: none;
